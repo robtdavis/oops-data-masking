@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>User that initiated the run.</description>
+    <fullName>StartedBy__c</fullName>
+    <label>Started By</label>
+    <relationshipLabel>Masking Runs Started</relationshipLabel>
+    <relationshipName>MaskingRunsStarted</relationshipName>
+    <referenceTo>User</referenceTo>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>
+

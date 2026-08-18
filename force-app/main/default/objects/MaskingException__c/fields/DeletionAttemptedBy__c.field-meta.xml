@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>User who attempted failed-record deletion.</description>
+    <fullName>DeletionAttemptedBy__c</fullName>
+    <label>Deletion Attempted By</label>
+    <relationshipLabel>Deletion Attempts</relationshipLabel>
+    <relationshipName>MaskingExceptionDeletionAttempts</relationshipName>
+    <referenceTo>User</referenceTo>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>
+

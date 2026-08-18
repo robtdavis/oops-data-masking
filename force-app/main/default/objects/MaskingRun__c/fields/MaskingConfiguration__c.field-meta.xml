@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Configuration used to launch this run. Lookup retained so run history can outlive configuration records.</description>
+    <fullName>MaskingConfiguration__c</fullName>
+    <label>Masking Configuration</label>
+    <relationshipLabel>Masking Runs</relationshipLabel>
+    <relationshipName>MaskingRuns</relationshipName>
+    <referenceTo>MaskingConfiguration__c</referenceTo>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>
+

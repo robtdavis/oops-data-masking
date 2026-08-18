@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Blocks execution when org-level All Email is enabled, if policy requires it.</description>
+    <fullName>BlockRunWhenAllEmailEnabled__c</fullName>
+    <label>Block Run When All Email Enabled</label>
+    <defaultValue>true</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

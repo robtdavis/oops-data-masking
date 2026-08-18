@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Display label of the processed object.</description>
+    <fullName>ObjectLabel__c</fullName>
+    <label>Object Label</label>
+    <required>true</required>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>
+

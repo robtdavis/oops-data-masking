@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Enables scheduled automatic deletion of exception records based on retention settings.</description>
+    <fullName>AutomaticExceptionPurgeEnabled__c</fullName>
+    <label>Automatic Exception Purge Enabled</label>
+    <defaultValue>true</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

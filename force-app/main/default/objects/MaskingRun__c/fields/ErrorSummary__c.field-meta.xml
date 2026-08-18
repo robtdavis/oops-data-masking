@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Operational error summary without source sensitive values.</description>
+    <inlineHelpText>Do not store original sensitive field values in this summary.</inlineHelpText>
+    <fullName>ErrorSummary__c</fullName>
+    <label>Error Summary</label>
+    <length>32768</length>
+    <visibleLines>5</visibleLines>
+    <type>LongTextArea</type>
+</CustomField>
+

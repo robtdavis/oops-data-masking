@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Parent run that generated this masking exception.</description>
+    <fullName>MaskingRun__c</fullName>
+    <label>Masking Run</label>
+    <relationshipLabel>Masking Exceptions</relationshipLabel>
+    <relationshipName>MaskingExceptions</relationshipName>
+    <referenceTo>MaskingRun__c</referenceTo>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <type>MasterDetail</type>
+</CustomField>

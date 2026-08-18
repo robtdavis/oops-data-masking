@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Display name of the Salesforce organization at run time.</description>
+    <fullName>OrganizationName__c</fullName>
+    <label>Organization Name</label>
+    <length>255</length>
+    <type>Text</type>
+</CustomField>
+

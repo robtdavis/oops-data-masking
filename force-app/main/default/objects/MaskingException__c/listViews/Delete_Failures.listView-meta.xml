@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>NAME</columns>
+    <columns>ExceptionType__c</columns>
+    <columns>SourceObject__c</columns>
+    <columns>SourceRecordId__c</columns>
+    <columns>DeletionAttemptedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <fullName>Delete_Failures</fullName>
+    <filters>
+        <field>ExceptionType__c</field>
+        <operation>equals</operation>
+        <value>Delete Failed</value>
+    </filters>
+    <label>Delete Failures</label>
+</ListView>

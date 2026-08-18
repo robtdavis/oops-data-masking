@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>FieldLabel__c</fields>
+    <fields>FieldApiName__c</fields>
+    <fields>MaskingStrategy__c</fields>
+    <fields>Included__c</fields>
+    <fullName>FieldConfiguration_Compact</fullName>
+    <label>Field Configuration Compact</label>
+</CompactLayout>

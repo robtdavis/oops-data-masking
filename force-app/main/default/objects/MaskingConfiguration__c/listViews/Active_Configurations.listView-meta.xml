@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>NAME</columns>
+    <columns>ConfigurationName__c</columns>
+    <columns>Active__c</columns>
+    <columns>RecordScope__c</columns>
+    <columns>DefaultBatchSize__c</columns>
+    <columns>LastPreviewedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <fullName>Active_Configurations</fullName>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Configurations</label>
+</ListView>

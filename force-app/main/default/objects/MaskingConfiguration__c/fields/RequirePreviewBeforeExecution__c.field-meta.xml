@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Forces preview completion before execution is permitted for this configuration.</description>
+    <fullName>RequirePreviewBeforeExecution__c</fullName>
+    <label>Require Preview Before Execution</label>
+    <defaultValue>true</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>NAME</columns>
+    <columns>ExceptionType__c</columns>
+    <columns>SourceObject__c</columns>
+    <columns>SourceRecordId__c</columns>
+    <columns>SourceRecordDeleted__c</columns>
+    <columns>DeletionAttemptedAt__c</columns>
+    <filterScope>Everything</filterScope>
+    <fullName>Source_Records_Deleted</fullName>
+    <filters>
+        <field>SourceRecordDeleted__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Source Records Deleted</label>
+</ListView>

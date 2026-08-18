@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Generated replacement value that was attempted; never store source values.</description>
+    <fullName>AttemptedReplacementValue__c</fullName>
+    <label>Attempted Replacement Value</label>
+    <length>255</length>
+    <type>Text</type>
+</CustomField>
+

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>ConfigurationName__c</fields>
+    <fields>Active__c</fields>
+    <fields>RecordScope__c</fields>
+    <fields>DefaultBatchSize__c</fields>
+    <fullName>MaskingConfiguration_Compact</fullName>
+    <label>Masking Configuration Compact</label>
+</CompactLayout>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Optional object-level result associated with this exception.</description>
+    <fullName>MaskingRunObjectResult__c</fullName>
+    <label>Masking Run Object Result</label>
+    <relationshipLabel>Masking Exceptions</relationshipLabel>
+    <relationshipName>MaskingRunObjectResultExceptions</relationshipName>
+    <referenceTo>MaskingRunObjectResult__c</referenceTo>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>
+

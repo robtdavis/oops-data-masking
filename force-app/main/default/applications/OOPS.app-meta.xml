@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>OOPS application for configuration, execution monitoring, and exception review of data masking operations.</description>
+    <formFactors>Large</formFactors>
+    <formFactors>Small</formFactors>
+    <label>OOPS</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>MaskingConfiguration__c</tabs>
+    <tabs>MaskingRun__c</tabs>
+    <tabs>MaskingException__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

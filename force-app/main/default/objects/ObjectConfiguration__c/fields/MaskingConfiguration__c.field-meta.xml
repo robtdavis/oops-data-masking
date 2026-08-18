@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Parent masking configuration for this object entry.</description>
+    <fullName>MaskingConfiguration__c</fullName>
+    <label>Masking Configuration</label>
+    <relationshipLabel>Object Configurations</relationshipLabel>
+    <relationshipName>ObjectConfigurations</relationshipName>
+    <referenceTo>MaskingConfiguration__c</referenceTo>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <type>MasterDetail</type>
+</CustomField>

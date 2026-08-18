@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Parent masking run that owns this object-level result.</description>
+    <fullName>MaskingRun__c</fullName>
+    <label>Masking Run</label>
+    <relationshipLabel>Object Results</relationshipLabel>
+    <relationshipName>ObjectResults</relationshipName>
+    <referenceTo>MaskingRun__c</referenceTo>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <type>MasterDetail</type>
+</CustomField>

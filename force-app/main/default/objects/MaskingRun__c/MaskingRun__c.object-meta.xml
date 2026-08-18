@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Authoritative audit record for preview and masking execution lifecycle.</description>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Masking Run</label>
+    <nameField>
+        <displayFormat>RUN-{000000}</displayFormat>
+        <label>Masking Run Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Masking Runs</pluralLabel>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

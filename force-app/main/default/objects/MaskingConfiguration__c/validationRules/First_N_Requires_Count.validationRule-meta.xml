@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>Requires First N Record Count when Record Scope is First N Records.</description>
+    <fullName>First_N_Requires_Count</fullName>
+    <errorConditionFormula>AND(TEXT(RecordScope__c) = &quot;First N Records&quot;, OR(ISBLANK(FirstNRecordCount__c), FirstNRecordCount__c &lt; 1))</errorConditionFormula>
+    <errorDisplayField>FirstNRecordCount__c</errorDisplayField>
+    <errorMessage>Enter a First N Record Count greater than zero.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Enables scheduled removal of generated PDF reports.</description>
+    <fullName>AutomaticallyDeletePdfReports__c</fullName>
+    <label>Automatically Delete PDF Reports</label>
+    <defaultValue>false</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

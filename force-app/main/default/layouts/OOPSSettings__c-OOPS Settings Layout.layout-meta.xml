@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layoutSections><customLabel>false</customLabel><detailHeading>true</detailHeading><editHeading>true</editHeading><label>Execution Controls</label><layoutColumns>
+        <layoutItems><behavior>Required</behavior><field>Name</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>ProductionExecutionEnabled__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>RequireProductionConfirmation__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>RequirePreviewBeforeExecution__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>BlockRunWhenAllEmailEnabled__c</field></layoutItems>
+    </layoutColumns><style>OneColumn</style></layoutSections>
+    <layoutSections><customLabel>false</customLabel><detailHeading>true</detailHeading><editHeading>true</editHeading><label>Retention Controls</label><layoutColumns>
+        <layoutItems><behavior>Edit</behavior><field>AutomaticExceptionPurgeEnabled__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>ExceptionRetentionDays__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>AutomaticallyDeletePdfReports__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>PdfRetentionDays__c</field></layoutItems>
+    </layoutColumns><style>OneColumn</style></layoutSections>
+    <layoutSections><customLabel>false</customLabel><detailHeading>true</detailHeading><editHeading>true</editHeading><label>Notifications</label><layoutColumns>
+        <layoutItems><behavior>Edit</behavior><field>CompletionNotificationEnabled__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>EmailCompletionReportEnabled__c</field></layoutItems>
+    </layoutColumns><style>OneColumn</style></layoutSections>
+    <layoutSections><customLabel>false</customLabel><detailHeading>true</detailHeading><editHeading>true</editHeading><label>Purge Tracking</label><layoutColumns>
+        <layoutItems><behavior>Edit</behavior><field>LastExceptionPurgeAt__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>LastPdfPurgeAt__c</field></layoutItems>
+        <layoutItems><behavior>Edit</behavior><field>ScheduledPurgeJobId__c</field></layoutItems>
+    </layoutColumns><style>OneColumn</style></layoutSections>
+    <layoutSections><customLabel>false</customLabel><detailHeading>true</detailHeading><editHeading>true</editHeading><label>System Information</label><layoutColumns>
+        <layoutItems><behavior>Readonly</behavior><field>CreatedById</field></layoutItems>
+        <layoutItems><behavior>Readonly</behavior><field>LastModifiedById</field></layoutItems>
+    </layoutColumns><style>OneColumn</style></layoutSections>
+</Layout>

@@ -1,0 +1,246 @@
+<template>
+    <lightning-card title="Configure OOPS" icon-name="custom:custom47">
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+
+        <div class="slds-p-around_medium">
+            <lightning-progress-indicator current-step={currentStepValue} type="path" variant="base">
+                <lightning-progress-step label="Details" value="1" data-step="1" onclick={handleProgressStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Objects" value="2" data-step="2" onclick={handleProgressStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Fields" value="3" data-step="3" onclick={handleProgressStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Scope" value="4" data-step="4" onclick={handleProgressStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Review" value="5" data-step="5" onclick={handleProgressStepClick}></lightning-progress-step>
+            </lightning-progress-indicator>
+
+            <div class="slds-m-top_medium slds-grid slds-grid_align-end slds-gutters">
+                <div class="slds-col">
+                    <lightning-button label="Previous" onclick={goPrevious} disabled={disablePrevious}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Next" variant="neutral" onclick={goNext} disabled={disableNext}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Save" variant="brand" onclick={handleSave} disabled={disableSave}></lightning-button>
+                </div>
+            </div>
+
+            <template if:true={stepOne}>
+                <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input label="Configuration Name" value={configurationName} data-field="configurationName" onchange={handleInputChange} required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input type="number" label="Default Batch Size" value={defaultBatchSize} data-field="defaultBatchSize" onchange={handleInputChange} min="1" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-textarea label="Description" value={description} data-field="description" onchange={handleInputChange}></lightning-textarea>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input type="checkbox" label="Active" checked={active} data-field="active" onchange={handleInputChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input type="checkbox" label="Require Preview Before Execution" checked={requirePreviewBeforeExecution} data-field="requirePreviewBeforeExecution" onchange={handleInputChange}></lightning-input>
+                    </div>
+                </div>
+            </template>
+
+            <template if:true={stepTwo}>
+                <div class="slds-m-top_medium">
+                    <p class="slds-text-body_regular slds-m-bottom_small">Select at least one updateable object. Use the alphabet bar to jump to a letter group.</p>
+                    <p class="slds-text-body_small slds-m-bottom_small">
+                        <strong>Path:</strong>
+                        <span>{objectTabPath}</span>
+                    </p>
+
+                    <div class="scroll-panel">
+                        <div class="sticky-nav object-index slds-m-bottom_medium">
+                            <template for:each={objectIndexLetters} for:item="entry">
+                                <lightning-button
+                                    key={entry.letter}
+                                    class="slds-m-right_xx-small slds-m-bottom_xx-small"
+                                    label={entry.letter}
+                                    variant="neutral"
+                                    data-letter={entry.letter}
+                                    disabled={entry.disabled}
+                                    onclick={handleObjectIndexClick}>
+                                </lightning-button>
+                            </template>
+                        </div>
+
+                        <template for:each={objectGroups} for:item="group">
+                            <section key={group.id} class="slds-m-bottom_medium" data-group={group.letter}>
+                                <h3 class="slds-text-title_bold slds-m-bottom_x-small sticky-group-title">{group.letter}</h3>
+                                <template for:each={group.objects} for:item="obj">
+                                    <div key={obj.key} class="slds-box slds-m-bottom_small">
+                                        <lightning-input
+                                            type="checkbox"
+                                            label={obj.label}
+                                            checked={obj.selected}
+                                            disabled={saving}
+                                            data-apiname={obj.apiName}
+                                            onchange={handleObjectSelect}>
+                                        </lightning-input>
+                                        <p class="slds-text-body_small">API Name: {obj.apiName}</p>
+                                    </div>
+                                </template>
+                            </section>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <template if:true={stepThree}>
+                <div class="slds-m-top_medium">
+                    <p class="slds-text-body_regular slds-m-bottom_small">Supported fields start unselected. Select only fields you explicitly want included.</p>
+                    <p class="slds-text-body_small slds-m-bottom_small">
+                        <strong>Path:</strong>
+                        <button class="path-link" data-step="2" onclick={handlePathStepClick}>Objects</button>
+                        <span> &gt; {selectedObjectLabel}</span>
+                        <span> &gt; </span>
+                        <button class="path-link" data-step="3" onclick={handlePathStepClick}>Fields</button>
+                    </p>
+
+                    <div class="scroll-panel">
+                        <div class="sticky-nav object-index slds-m-bottom_medium">
+                            <template for:each={fieldIndexLetters} for:item="entry">
+                                <lightning-button
+                                    key={entry.letter}
+                                    class="slds-m-right_xx-small slds-m-bottom_xx-small"
+                                    label={entry.letter}
+                                    variant="neutral"
+                                    data-letter={entry.letter}
+                                    disabled={entry.disabled}
+                                    onclick={handleFieldIndexClick}>
+                                </lightning-button>
+                            </template>
+                        </div>
+
+                        <template for:each={fieldGroups} for:item="group">
+                            <section key={group.id} class="slds-m-bottom_medium" data-field-group={group.letter}>
+                                <h3 class="slds-text-title_bold slds-m-bottom_x-small sticky-group-title">{group.letter}</h3>
+                                <template for:each={group.fields} for:item="field">
+                                    <div key={field.key} class={field.rowClass}>
+                                        <div class="slds-grid slds-wrap slds-gutters">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                                                <lightning-input
+                                                    type="checkbox"
+                                                    label={field.displayLabel}
+                                                    checked={field.selected}
+                                                    disabled={field.disabledBySupport}
+                                                    data-fieldkey={field.fieldKey}
+                                                    onchange={handleFieldSelect}>
+                                                </lightning-input>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                                                <p class="slds-text-body_small">API Object Name: {field.objectApiName}</p>
+                                                <p class="slds-text-body_small">API Field Name: {field.apiName}</p>
+                                                <p class="slds-text-body_small">Data Type: {field.dataType}</p>
+                                                <p class="slds-text-body_small">Required: {field.required}</p>
+                                                <p class="slds-text-body_small">Updateable: {field.updateable}</p>
+                                                <p class="slds-text-body_small">Supported: {field.supported}</p>
+                                                <template if:false={field.supported}>
+                                                    <p class="slds-text-color_error slds-text-body_small">{field.unsupportedReason}</p>
+                                                </template>
+                                            </div>
+                                            <template if:true={field.selected}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                                    <lightning-combobox
+                                                        label="Masking Strategy"
+                                                        data-fieldkey={field.fieldKey}
+                                                        data-field="maskingStrategy"
+                                                        value={field.maskingStrategy}
+                                                        options={maskingStrategyOptions}
+                                                        onchange={handleFieldDetailChange}>
+                                                    </lightning-combobox>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                                    <lightning-input
+                                                        label="Fixed Replacement Value"
+                                                        data-fieldkey={field.fieldKey}
+                                                        data-field="fixedReplacementValue"
+                                                        value={field.fixedReplacementValue}
+                                                        onchange={handleFieldDetailChange}>
+                                                    </lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                                    <lightning-input
+                                                        type="number"
+                                                        min="1"
+                                                        label="Display Order"
+                                                        data-fieldkey={field.fieldKey}
+                                                        data-field="displayOrder"
+                                                        value={field.displayOrder}
+                                                        onchange={handleFieldDetailChange}>
+                                                    </lightning-input>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </template>
+                            </section>
+                        </template>
+                    </div>
+                </div>
+            </template>
+
+            <template if:true={stepFour}>
+                <div class="slds-m-top_medium slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-combobox
+                            label="Record Scope"
+                            value={recordScope}
+                            options={recordScopeOptions}
+                            onchange={handleScopeChange}>
+                        </lightning-combobox>
+                    </div>
+                    <template if:true={showFirstN}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input type="number" min="1" label="First N Record Count" value={firstNRecordCount} onchange={handleFirstNChange}></lightning-input>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={stepFive}>
+                <div class="slds-m-top_medium">
+                    <p class="slds-text-heading_small slds-m-bottom_small">Review Configuration</p>
+                    <p><strong>Configuration Name:</strong> {configurationName}</p>
+                    <p><strong>Description:</strong> {description}</p>
+                    <p><strong>Active:</strong> {active}</p>
+                    <p><strong>Batch Size:</strong> {defaultBatchSize}</p>
+                    <p><strong>Require Preview Before Execution:</strong> {requirePreviewBeforeExecution}</p>
+                    <p><strong>Selected Object:</strong> {selectedObjectApiName}</p>
+                    <p><strong>Record Scope:</strong> {recordScope}</p>
+                    <template if:true={showFirstN}>
+                        <p><strong>First N:</strong> {firstNRecordCount}</p>
+                    </template>
+                    <p class="slds-m-top_small slds-text-title_bold">{reviewStatement}</p>
+                    <p class="slds-text-title_bold slds-m-bottom_small">Saving this configuration will not modify Salesforce data.</p>
+
+                    <template for:each={selectedFieldRows} for:item="field">
+                        <div key={field.key} class="slds-box slds-m-bottom_x-small">
+                            <p><strong>{field.label}</strong> ({field.apiName})</p>
+                            <p>Masking Strategy: {field.maskingStrategy}</p>
+                            <template if:true={field.fixedReplacementValue}>
+                                <p>Fixed Replacement Value: {field.fixedReplacementValue}</p>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-around_medium slds-grid slds-grid_align-end slds-gutters">
+            <div class="slds-col">
+                <lightning-button label="Previous" onclick={goPrevious} disabled={disablePrevious}></lightning-button>
+            </div>
+            <div class="slds-col">
+                <lightning-button label="Next" variant="neutral" onclick={goNext} disabled={disableNext}></lightning-button>
+            </div>
+            <div class="slds-col">
+                <lightning-button label="Save" variant="brand" onclick={handleSave} disabled={disableSave}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

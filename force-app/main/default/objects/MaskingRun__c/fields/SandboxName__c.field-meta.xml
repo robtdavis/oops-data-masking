@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sandbox name when Environment Type is Sandbox.</description>
+    <fullName>SandboxName__c</fullName>
+    <label>Sandbox Name</label>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>
+

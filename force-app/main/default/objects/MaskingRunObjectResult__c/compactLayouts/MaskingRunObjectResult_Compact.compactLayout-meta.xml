@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>ObjectLabel__c</fields>
+    <fields>Status__c</fields>
+    <fields>RecordsUpdated__c</fields>
+    <fields>RecordsFailed__c</fields>
+    <fullName>MaskingRunObjectResult_Compact</fullName>
+    <label>Masking Run Object Result Compact</label>
+</CompactLayout>

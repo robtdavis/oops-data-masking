@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Source object label for the record that failed masking.</description>
+    <fullName>SourceObject__c</fullName>
+    <label>Source Object</label>
+    <required>true</required>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>
+

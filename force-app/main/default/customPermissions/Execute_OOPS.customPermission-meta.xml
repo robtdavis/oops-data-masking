@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Authorizes launching preview and masking runs and monitoring run lifecycle states.</description>
+    <label>Execute OOPS</label>
+</CustomPermission>

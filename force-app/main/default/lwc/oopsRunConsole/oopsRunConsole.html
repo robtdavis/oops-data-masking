@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="OOPS Run Console">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="configuration"
+                label="Saved Configuration"
+                value={selectedConfigurationId}
+                options={configOptions}
+                onchange={handleConfigurationChange}
+                disabled={loading}
+            ></lightning-combobox>
+
+            <div class="slds-m-top_small">
+                <lightning-button
+                    variant="neutral"
+                    label="Preview (max 50)"
+                    onclick={handlePreview}
+                    disabled={disableActionButtons}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-left_small"
+                    variant="brand"
+                    label="Execute Masking"
+                    onclick={handleExecute}
+                    disabled={disableActionButtons}
+                ></lightning-button>
+                <lightning-button
+                    class="slds-m-left_small"
+                    variant="outline-brand"
+                    label="Refresh Run Status"
+                    onclick={refreshRunStatus}
+                    disabled={disableRefreshButton}
+                ></lightning-button>
+            </div>
+
+            <template if:true={previewRunId}>
+                <p class="slds-m-top_medium"><strong>Preview Run:</strong> {previewRunId}</p>
+                <template for:each={previewRows} for:item="row">
+                    <p key={row.id} class="slds-text-body_small slds-m-top_x-small">
+                        <strong>{row.objectApiName}</strong> ({row.recordId}) - {row.details}
+                    </p>
+                </template>
+            </template>
+
+            <template if:true={runId}>
+                <p class="slds-m-top_medium"><strong>Execution Run:</strong> {runId}</p>
+                <p><strong>Status:</strong> {runStatus}</p>
+                <template if:true={runCounters}>
+                    <p>Attempted: {runCounters.attempted}</p>
+                    <p>Updated: {runCounters.updated}</p>
+                    <p>Failed: {runCounters.failed}</p>
+                    <p>Skipped: {runCounters.skipped}</p>
+                    <p>Exceptions: {runCounters.exceptions}</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

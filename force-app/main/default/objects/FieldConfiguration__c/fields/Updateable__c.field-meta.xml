@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Indicates whether Salesforce permits updates to this field.</description>
+    <fullName>Updateable__c</fullName>
+    <label>Updateable</label>
+    <defaultValue>false</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

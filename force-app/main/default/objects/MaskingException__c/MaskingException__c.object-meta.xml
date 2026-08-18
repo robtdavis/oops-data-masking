@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Unsuccessful masking attempts without retaining original sensitive values.</description>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Masking Exception</label>
+    <nameField>
+        <displayFormat>ME-{000000}</displayFormat>
+        <label>Masking Exception Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Masking Exceptions</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

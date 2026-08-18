@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Number of exception records generated for this run.</description>
+    <fullName>ExceptionCount__c</fullName>
+    <label>Exception Count</label>
+    <defaultValue>0</defaultValue>
+    <precision>18</precision>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>
+

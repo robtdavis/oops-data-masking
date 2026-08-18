@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Execute_OOPS</name>
+    </customPermissions>    <description>Execute authorized OOPS runs and monitor run status and result records.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.MaskingConfiguration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.SandboxName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.StartedBy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.StartedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.CompletedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.DurationSeconds__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.BatchSize__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordScope__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.FirstNRecordCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.ObjectsSelected__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordsAttempted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordsUpdated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordsFailed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordsSkipped__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.RecordsDeleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.ExceptionCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.AsyncJobId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.AbortRequested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.AbortRequestedBy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.AbortRequestedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.ErrorSummary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.ReportFileId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRun__c.ReportGeneratedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.ProcessingOrder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.RecordsAttempted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.RecordsUpdated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.RecordsFailed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.RecordsSkipped__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.RecordsDeleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.StartedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.CompletedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.AsyncJobId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaskingRunObjectResult__c.ErrorSummary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.DefaultBatchSize__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.EmailMaskingSuffix__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.DefaultMaskedPhone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.FirstNRecordCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.RequirePreviewBeforeExecution__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.LastPreviewedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingConfiguration__c.LastPreviewedBy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.AutomaticExceptionPurgeEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.ExceptionRetentionDays__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.AutomaticallyDeletePdfReports__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.PdfRetentionDays__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.ProductionExecutionEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.RequireProductionConfirmation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.RequirePreviewBeforeExecution__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.BlockRunWhenAllEmailEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.CompletionNotificationEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.EmailCompletionReportEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.LastExceptionPurgeAt__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.LastPdfPurgeAt__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>OOPSSettings__c.ScheduledPurgeJobId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.Included__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.AutomaticallyDetected__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.FixedReplacementValue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.FieldLength__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.Updateable__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.RequiredField__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.UnsupportedReason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>FieldConfiguration__c.DisplayOrder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>ObjectConfiguration__c.Included__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>ObjectConfiguration__c.ProcessingOrder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>ObjectConfiguration__c.EstimatedRecordCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>ObjectConfiguration__c.LastMetadataReviewAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.MaskingRunObjectResult__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.SourceRecordName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.FieldApiName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.MaskingStrategy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.ErrorMessage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.AttemptedReplacementValue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.TechnicalDetails__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.SourceRecordDeleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.DeletionAttempted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.DeletionAttemptedAt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.DeletionAttemptedBy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <fieldPermissions>
+        <editable>false</editable>
+        <field>MaskingException__c.DeletionError__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    <hasActivationRequired>false</hasActivationRequired>
+    <label>OOPS Operator</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaskingConfiguration__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ObjectConfiguration__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>FieldConfiguration__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaskingRun__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaskingRunObjectResult__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaskingException__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OOPSSettings__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions></PermissionSet>

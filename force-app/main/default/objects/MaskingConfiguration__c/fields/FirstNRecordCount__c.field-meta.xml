@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Record limit used when Record Scope is First N Records.</description>
+    <inlineHelpText>Required when Record Scope is First N Records.</inlineHelpText>
+    <fullName>FirstNRecordCount__c</fullName>
+    <label>First N Record Count</label>
+    <precision>9</precision>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>
+

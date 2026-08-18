@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>Ensures default batch size remains within supported metadata guardrails.</description>
+    <fullName>Valid_Default_Batch_Size</fullName>
+    <errorConditionFormula>OR(DefaultBatchSize__c &lt; 1, DefaultBatchSize__c &gt; 2000)</errorConditionFormula>
+    <errorDisplayField>DefaultBatchSize__c</errorDisplayField>
+    <errorMessage>Default Batch Size must be between 1 and 2000.</errorMessage>
+</ValidationRule>

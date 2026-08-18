@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Suffix appended to masked email values.</description>
+    <inlineHelpText>The suffix must only be appended once.</inlineHelpText>
+    <fullName>EmailMaskingSuffix__c</fullName>
+    <label>Email Masking Suffix</label>
+    <defaultValue>".invalid"</defaultValue>
+    <length>40</length>
+    <type>Text</type>
+</CustomField>
+

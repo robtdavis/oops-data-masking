@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Timestamp when object metadata was last reviewed for masking readiness.</description>
+    <fullName>LastMetadataReviewAt__c</fullName>
+    <label>Last Metadata Review At</label>
+    <type>DateTime</type>
+</CustomField>
+

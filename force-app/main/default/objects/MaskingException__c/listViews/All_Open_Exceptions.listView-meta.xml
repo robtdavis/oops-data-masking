@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>NAME</columns>
+    <columns>ExceptionType__c</columns>
+    <columns>SourceObject__c</columns>
+    <columns>SourceRecordId__c</columns>
+    <columns>OccurredAt__c</columns>
+    <columns>SourceRecordDeleted__c</columns>
+    <filterScope>Everything</filterScope>
+    <fullName>All_Open_Exceptions</fullName>
+    <label>All Open Exceptions</label>
+</ListView>

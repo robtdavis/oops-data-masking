@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Application-level fallback phone value when Fixed Phone strategy is selected.</description>
+    <inlineHelpText>If a runtime default is needed, use 555-555-1212 as the intended value.</inlineHelpText>
+    <fullName>DefaultMaskedPhone__c</fullName>
+    <label>Default Masked Phone</label>
+    <type>Phone</type>
+</CustomField>

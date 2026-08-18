@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Field Information</label>
+        <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>ObjectConfiguration__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Included__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>FieldLabel__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>FieldApiName__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>SalesforceDataType__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>FieldLength__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>MaskingStrategy__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>FixedReplacementValue__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>AutomaticallyDetected__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>Updateable__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>RequiredField__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>DisplayOrder__c</field></layoutItems>
+            <layoutItems><behavior>Edit</behavior><field>UnsupportedReason__c</field></layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>System Information</label>
+        <layoutColumns>
+            <layoutItems><behavior>Readonly</behavior><field>CreatedById</field></layoutItems>
+            <layoutItems><behavior>Readonly</behavior><field>LastModifiedById</field></layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+</Layout>

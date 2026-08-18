@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Indicates the field is required by metadata or business rules.</description>
+    <fullName>RequiredField__c</fullName>
+    <label>Required Field</label>
+    <defaultValue>false</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

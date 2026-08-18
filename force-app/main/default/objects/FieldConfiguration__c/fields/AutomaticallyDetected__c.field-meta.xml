@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Indicates this field was auto-discovered from object metadata.</description>
+    <fullName>AutomaticallyDetected__c</fullName>
+    <label>Automatically Detected</label>
+    <defaultValue>false</defaultValue>
+    <type>Checkbox</type>
+</CustomField>
+

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Human-friendly configuration name for administrators.</description>
+    <inlineHelpText>Provide a clear name for this masking configuration.</inlineHelpText>
+    <fullName>ConfigurationName__c</fullName>
+    <label>Configuration Name</label>
+    <required>true</required>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>
+

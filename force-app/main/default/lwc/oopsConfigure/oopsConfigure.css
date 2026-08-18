@@ -1,0 +1,48 @@
+.object-index {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.scroll-panel {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: #ffffff;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.sticky-group-title {
+    position: sticky;
+    top: 2.75rem;
+    z-index: 3;
+    background: #ffffff;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+}
+
+.path-link {
+    border: none;
+    background: transparent;
+    color: #0176d3;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 0.15rem;
+    font: inherit;
+}
+
+.object-shade-base {
+    background: #ffffff;
+}
+
+.object-shade-alt {
+    background: #f4f6f9;
+}

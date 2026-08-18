@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Authorizes creating and maintaining masking configurations, object selections, and field strategy definitions.</description>
+    <label>Configure OOPS</label>
+</CustomPermission>

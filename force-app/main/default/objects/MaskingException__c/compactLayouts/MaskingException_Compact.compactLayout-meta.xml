@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>ExceptionType__c</fields>
+    <fields>SourceObject__c</fields>
+    <fields>SourceRecordId__c</fields>
+    <fields>FieldApiName__c</fields>
+    <fields>SourceRecordDeleted__c</fields>
+    <fullName>MaskingException_Compact</fullName>
+    <label>Masking Exception Compact</label>
+</CompactLayout>
