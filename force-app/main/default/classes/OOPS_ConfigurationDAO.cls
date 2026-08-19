@@ -27,10 +27,10 @@ public with sharing class OOPS_ConfigurationDAO {
 
     public static List<ObjectConfiguration__c> getObjectConfigurationsByConfigurationId(Id configurationId) {
         return [
-            SELECT Id, MaskingConfiguration__c, ObjectApiName__c, ObjectLabel__c
+            SELECT Id, MaskingConfiguration__c, ObjectApiName__c, ObjectLabel__c, ProcessingOrder__c
             FROM ObjectConfiguration__c
             WHERE MaskingConfiguration__c = :configurationId
-            ORDER BY CreatedDate ASC
+            ORDER BY ProcessingOrder__c ASC, CreatedDate ASC
         ];
     }
 

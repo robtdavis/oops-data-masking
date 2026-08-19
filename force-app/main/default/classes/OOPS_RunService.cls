@@ -134,7 +134,14 @@ public with sharing class OOPS_RunService {
         }
 
         String jobId = Database.executeBatch(
-            new OOPS_MaskingBatch(runRow.Id, ctx.configurationId, ctx.objectApiName, ctx.recordScope, ctx.firstNRecordCount),
+            new OOPS_MaskingBatch(
+                runRow.Id,
+                ctx.configurationId,
+                ctx.objectApiNames,
+                ctx.recordScope,
+                ctx.firstNRecordCount,
+                batchSize
+            ),
             batchSize
         );
         runRow.AsyncJobId__c = jobId;
