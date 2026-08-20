@@ -9,10 +9,12 @@ import isSandboxEnvironment from '@salesforce/apex/OOPS_RunController.isSandboxE
 
 const SHARED_SELECTION_KEY = 'oops.selectedConfigurationId';
 const SHARED_SELECTION_EVENT = 'oopsconfigurationselection';
+const RUN_STATUS_POLL_INTERVAL_MS = 3000;
 
 export default class OopsRunConsole extends LightningElement {
     @track loading = false;
     @track running = false;
+    @track statusRefreshing = false;
     @track configs = [];
     @track selectedConfigurationId;
 
@@ -22,11 +24,19 @@ export default class OopsRunConsole extends LightningElement {
     @track runId;
     @track runStatus;
     @track runCounters;
+    @track runRecordOutcomes = [];
     @track sandboxEnvironment;
+
+    runStatusPollHandle;
+    lastKnownRunStatus;
 
     connectedCallback() {
         this.loadEnvironment();
         this.loadConfigurations();
+    }
+
+    disconnectedCallback() {
+        this.stopRunStatusPolling();
     }
 
     get configOptions() {
@@ -37,12 +47,24 @@ export default class OopsRunConsole extends LightningElement {
         return !!this.selectedConfigurationId && !this.loading && !this.running;
     }
 
+    get hasActiveExecution() {
+        return !!this.runId && !this.isTerminalStatus(this.runStatus);
+    }
+
     get disableActionButtons() {
-        return !this.canExecute;
+        return !this.canExecute || this.hasActiveExecution;
     }
 
     get disableRefreshButton() {
-        return this.loading || !this.runId;
+        return this.statusRefreshing || !this.runId;
+    }
+
+    get isRunStatusTerminal() {
+        return this.isTerminalStatus(this.runStatus);
+    }
+
+    get showPreviewPanel() {
+        return !!this.previewRunId && !this.hasActiveExecution;
     }
 
     async loadConfigurations() {
@@ -114,6 +136,7 @@ export default class OopsRunConsole extends LightningElement {
         this.loading = true;
         this.previewRows = [];
         this.previewRunId = null;
+        this.runRecordOutcomes = [];
 
         try {
             const response = await launchPreview({ configurationId: this.selectedConfigurationId });
@@ -159,10 +182,23 @@ export default class OopsRunConsole extends LightningElement {
 
         this.running = true;
         try {
+            this.previewRows = [];
+            this.previewRunId = null;
+            this.runRecordOutcomes = [];
             const response = await launchExecution({ configurationId: this.selectedConfigurationId });
             this.runId = response.runId;
             this.runStatus = response.runStatus;
+            this.lastKnownRunStatus = response.runStatus;
+            this.runCounters = {
+                attempted: 0,
+                updated: 0,
+                failed: 0,
+                skipped: 0,
+                exceptions: 0
+            };
+            this.runRecordOutcomes = [];
             this.showToast('Execution Queued', 'Masking execution has started.', 'success');
+            this.startRunStatusPolling();
             await this.refreshRunStatus();
         } catch (error) {
             this.showError(error, 'Unable to launch execution.');
@@ -171,15 +207,25 @@ export default class OopsRunConsole extends LightningElement {
         }
     }
 
-    async refreshRunStatus() {
+    async handleRefreshRunStatus() {
+        await this.refreshRunStatus(true);
+    }
+
+    async refreshRunStatus(showManualToast = false) {
         if (!this.runId) {
             return;
         }
 
-        this.loading = true;
+        if (this.statusRefreshing) {
+            return;
+        }
+
+        this.statusRefreshing = true;
         try {
+            const previousStatus = this.runStatus;
             const status = await getRunStatus({ runId: this.runId });
             this.runStatus = status.runStatus;
+            this.lastKnownRunStatus = status.runStatus;
             this.runCounters = {
                 attempted: status.recordsAttempted,
                 updated: status.recordsUpdated,
@@ -187,11 +233,51 @@ export default class OopsRunConsole extends LightningElement {
                 skipped: status.recordsSkipped,
                 exceptions: status.exceptionCount
             };
+            this.runRecordOutcomes = (status.recordOutcomes || []).map((row, index) => ({
+                key: `${row.recordId || 'record'}-${index}`,
+                outcomeType: row.outcomeType || 'Failed',
+                objectApiName: row.objectApiName || 'Record',
+                recordId: row.recordId || 'Unknown',
+                reason: row.reason || 'No details provided.'
+            }));
+
+            if (showManualToast) {
+                this.showToast('Run Status Refreshed', `Current status: ${this.runStatus || 'Unknown'}.`, 'info');
+            }
+
+            if (!this.isTerminalStatus(previousStatus) && this.isTerminalStatus(this.runStatus)) {
+                this.stopRunStatusPolling();
+                const variant = this.runStatus === 'Completed' ? 'success' : 'warning';
+                this.showToast('Execution Finished', `Run finished with status: ${this.runStatus}.`, variant);
+            }
         } catch (error) {
+            this.stopRunStatusPolling();
             this.showError(error, 'Unable to refresh run status.');
         } finally {
-            this.loading = false;
+            this.statusRefreshing = false;
         }
+    }
+
+    startRunStatusPolling() {
+        this.stopRunStatusPolling();
+        this.runStatusPollHandle = window.setInterval(() => {
+            this.refreshRunStatus();
+        }, RUN_STATUS_POLL_INTERVAL_MS);
+    }
+
+    stopRunStatusPolling() {
+        if (this.runStatusPollHandle) {
+            window.clearInterval(this.runStatusPollHandle);
+            this.runStatusPollHandle = null;
+        }
+    }
+
+    isTerminalStatus(status) {
+        return status === 'Completed' || status === 'Completed with Exceptions' || status === 'Failed' || status === 'Aborted';
+    }
+
+    get hasRunRecordOutcomes() {
+        return this.runRecordOutcomes && this.runRecordOutcomes.length > 0;
     }
 
     showError(error, fallbackMessage) {

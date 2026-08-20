@@ -176,6 +176,8 @@ A typical OOPS workflow is:
 
 Configure OOPS uses a five-step wizard.
 
+🎥 Video: https://lnkd.in/g97fCibx
+
 ## Tab 1: Details
 
 Define the top-level behavior of the masking configuration.

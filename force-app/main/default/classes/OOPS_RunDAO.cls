@@ -170,7 +170,36 @@ public with sharing class OOPS_RunDAO {
     }
 
     public static Integer countMaskingExceptionsByRun(Id runId) {
-        return [SELECT COUNT() FROM MaskingException__c WHERE MaskingRun__c = :runId];
+        return [
+            SELECT COUNT()
+            FROM MaskingException__c
+            WHERE MaskingRun__c = :runId
+            AND (FieldApiName__c = null OR FieldApiName__c != 'Skipped')
+        ];
+    }
+
+    public static Integer countSkippedDiagnosticsByRun(Id runId) {
+        return [
+            SELECT COUNT()
+            FROM MaskingException__c
+            WHERE MaskingRun__c = :runId
+            AND FieldApiName__c = 'Skipped'
+        ];
+    }
+
+    public static List<MaskingException__c> getRunOutcomeDiagnostics(Id runId, Integer maxRows) {
+        Integer limitRows = (maxRows == null || maxRows <= 0) ? 100 : maxRows;
+        if (limitRows > 100) {
+            limitRows = 100;
+        }
+
+        return [
+            SELECT Id, SourceObjectApiName__c, SourceRecordId__c, ErrorMessage__c, FieldApiName__c, OccurredAt__c
+            FROM MaskingException__c
+            WHERE MaskingRun__c = :runId
+            ORDER BY CreatedDate DESC
+            LIMIT :limitRows
+        ];
     }
 
     public static List<MaskingRun__c> getActiveMaskingRuns() {

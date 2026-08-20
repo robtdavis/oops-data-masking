@@ -32,7 +32,7 @@ public with sharing class OOPS_RunController {
         }
     }
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static OOPS_RunModels.RunStatusResponse getRunStatus(Id runId) {
         try {
             return OOPS_RunService.getRunStatus(runId);

@@ -1,5 +1,6 @@
 public with sharing class OOPS_RunService {
     public static final Integer PREVIEW_LIMIT = 50;
+    public static final Integer RUN_OUTCOME_DIAGNOSTIC_LIMIT = 100;
 
     public static List<OOPS_RunModels.ConfigurationOption> getSavedConfigurations() {
         OOPS_Authorization.assertExecutePermission();
@@ -176,6 +177,17 @@ public with sharing class OOPS_RunService {
         response.startedAt = (Datetime) row.get('StartedAt__c');
         response.completedAt = (Datetime) row.get('CompletedAt__c');
         response.errorSummary = getStringValue(row, 'ErrorSummary__c');
+
+        for (MaskingException__c diagnostic : OOPS_RunDAO.getRunOutcomeDiagnostics(runId, RUN_OUTCOME_DIAGNOSTIC_LIMIT)) {
+            OOPS_RunModels.RunRecordOutcome outcome = new OOPS_RunModels.RunRecordOutcome();
+            outcome.outcomeType = diagnostic.FieldApiName__c == 'Skipped' ? 'Skipped' : 'Failed';
+            outcome.objectApiName = diagnostic.SourceObjectApiName__c;
+            outcome.recordId = diagnostic.SourceRecordId__c;
+            outcome.reason = diagnostic.ErrorMessage__c;
+            outcome.occurredAt = diagnostic.OccurredAt__c;
+            response.recordOutcomes.add(outcome);
+        }
+
         return response;
     }
 

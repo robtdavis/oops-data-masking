@@ -28,12 +28,12 @@
                     class="slds-m-left_small"
                     variant="outline-brand"
                     label="Refresh Run Status"
-                    onclick={refreshRunStatus}
+                    onclick={handleRefreshRunStatus}
                     disabled={disableRefreshButton}
                 ></lightning-button>
             </div>
 
-            <template if:true={previewRunId}>
+            <template if:true={showPreviewPanel}>
                 <p class="slds-m-top_medium"><strong>Preview Run:</strong> {previewRunId}</p>
                 <template for:each={previewRows} for:item="row">
                     <p key={row.id} class="slds-text-body_small slds-m-top_x-small">
@@ -45,12 +45,24 @@
             <template if:true={runId}>
                 <p class="slds-m-top_medium"><strong>Execution Run:</strong> {runId}</p>
                 <p><strong>Status:</strong> {runStatus}</p>
+                <template if:true={hasActiveExecution}>
+                    <p class="slds-text-body_small">Run is in progress. Status auto-refreshes every 3 seconds.</p>
+                </template>
                 <template if:true={runCounters}>
                     <p>Attempted: {runCounters.attempted}</p>
                     <p>Updated: {runCounters.updated}</p>
                     <p>Failed: {runCounters.failed}</p>
                     <p>Skipped: {runCounters.skipped}</p>
                     <p>Exceptions: {runCounters.exceptions}</p>
+                </template>
+
+                <template if:true={hasRunRecordOutcomes}>
+                    <p class="slds-m-top_small"><strong>Failed/Skipped Records (up to 100)</strong></p>
+                    <template for:each={runRecordOutcomes} for:item="row">
+                        <p key={row.key} class="slds-text-body_small slds-m-top_x-small">
+                            <strong>{row.outcomeType}</strong> - {row.objectApiName} ({row.recordId}) - {row.reason}
+                        </p>
+                    </template>
                 </template>
             </template>
         </div>

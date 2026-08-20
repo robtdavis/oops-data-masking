@@ -1,4 +1,8 @@
 public with sharing class OOPS_MaskingBatch implements Database.Batchable<SObject> {
+    private static final Integer MAX_SKIPPED_DIAGNOSTIC_ROWS = 100;
+    private static final String SKIPPED_DIAGNOSTIC_FIELD_KEY = 'Skipped';
+    private static final String SKIPPED_DIAGNOSTIC_REASON = 'No field delta detected; values already masked or unchanged.';
+
     private Id runId;
     private Id configurationId;
     private List<String> objectApiNames;
@@ -112,6 +116,11 @@ public with sharing class OOPS_MaskingBatch implements Database.Batchable<SObjec
         List<SObject> updates = new List<SObject>();
         Map<Integer, Id> rowIdByIndex = new Map<Integer, Id>();
         Map<Integer, String> strategyByIndex = new Map<Integer, String>();
+        List<MaskingException__c> skippedDiagnostics = new List<MaskingException__c>();
+        Integer skippedDiagnosticBudget = MAX_SKIPPED_DIAGNOSTIC_ROWS - OOPS_RunDAO.countSkippedDiagnosticsByRun(runId);
+        if (skippedDiagnosticBudget < 0) {
+            skippedDiagnosticBudget = 0;
+        }
 
         Integer idx = 0;
         for (SObject row : scope) {
@@ -148,6 +157,9 @@ public with sharing class OOPS_MaskingBatch implements Database.Batchable<SObjec
                 rowIdByIndex.put(idx, sourceId);
                 strategyByIndex.put(idx, currentObjectApiName + ' masking');
                 idx++;
+            } else if (skippedDiagnosticBudget > 0) {
+                skippedDiagnostics.add(buildSkippedDiagnostic(currentObjectApiName, sourceId));
+                skippedDiagnosticBudget--;
             }
         }
 
@@ -183,6 +195,10 @@ public with sharing class OOPS_MaskingBatch implements Database.Batchable<SObjec
 
         if (!exceptions.isEmpty()) {
             OOPS_RunDAO.insertMaskingExceptions(exceptions);
+        }
+
+        if (!skippedDiagnostics.isEmpty()) {
+            OOPS_RunDAO.insertMaskingExceptions(skippedDiagnostics);
         }
 
         OOPS_RunDAO.incrementRunCounters(runId, attempted, updatedCount, failedCount);
@@ -305,5 +321,21 @@ public with sharing class OOPS_MaskingBatch implements Database.Batchable<SObjec
             return null;
         }
         return input.length() > maxLen ? input.substring(0, maxLen) : input;
+    }
+
+    private MaskingException__c buildSkippedDiagnostic(String objectApiName, Id sourceId) {
+        MaskingException__c skippedRow = new MaskingException__c();
+        skippedRow.MaskingRun__c = runId;
+        skippedRow.SourceObject__c = objectApiName;
+        skippedRow.SourceObjectApiName__c = objectApiName;
+        skippedRow.SourceRecordId__c = String.valueOf(sourceId);
+        skippedRow.SourceRecordName__c = objectApiName + '-' + String.valueOf(sourceId).right(6);
+        skippedRow.FieldApiName__c = SKIPPED_DIAGNOSTIC_FIELD_KEY;
+        skippedRow.MaskingStrategy__c = objectApiName + ' masking';
+        skippedRow.ErrorMessage__c = SKIPPED_DIAGNOSTIC_REASON;
+        skippedRow.ExceptionType__c = 'Update Failed';
+        skippedRow.OccurredAt__c = System.now();
+        skippedRow.TechnicalDetails__c = 'Outcome=Skipped';
+        return skippedRow;
     }
 }

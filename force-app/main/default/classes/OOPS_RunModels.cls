@@ -55,5 +55,18 @@ public with sharing class OOPS_RunModels {
         @AuraEnabled public Datetime startedAt { get; set; }
         @AuraEnabled public Datetime completedAt { get; set; }
         @AuraEnabled public String errorSummary { get; set; }
+        @AuraEnabled public List<RunRecordOutcome> recordOutcomes { get; set; }
+
+        public RunStatusResponse() {
+            recordOutcomes = new List<RunRecordOutcome>();
+        }
+    }
+
+    public class RunRecordOutcome {
+        @AuraEnabled public String outcomeType { get; set; }
+        @AuraEnabled public String objectApiName { get; set; }
+        @AuraEnabled public String recordId { get; set; }
+        @AuraEnabled public String reason { get; set; }
+        @AuraEnabled public Datetime occurredAt { get; set; }
     }
 }
